@@ -4,6 +4,9 @@ use crate::DayTrait;
 type Input = u64;
 type Output = usize;
 
+
+
+
 #[derive(Default)]
 pub struct Day {}
 impl DayTrait<Input, Output> for Day {
@@ -24,6 +27,6 @@ impl DayTrait<Input, Output> for Day {
     }
 
     fn part2_answer(&self) -> Output {
-        80072256
+        1491
     }
 }

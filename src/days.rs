@@ -1,4 +1,5 @@
 use crate::parse_list;
+extern crate tokio;
 use std::str::FromStr;
 use std::{
     fmt::{Debug, Display},
@@ -6,7 +7,7 @@ use std::{
 };
 
 pub mod day1;
-// pub mod day2;
+pub mod day2;
 // pub mod day3;
 // pub mod day4;
 // pub mod day5;
@@ -68,11 +69,25 @@ where
     fn part2_answer(&self) -> Output;
     fn part1(&self, input: Vec<Input>) -> Output;
     fn part2(&self, input: Vec<Input>) -> Output;
+    fn check_input(&self) {
+        if !std::path::Path::new(&format!("input/day{}.in", self.get_num())).exists() {
+            println!("Fetching input for day {}", self.get_num());
+            let cookie = std::fs::read_to_string("session.txt").unwrap();
+            let client = reqwest::blocking::ClientBuilder::new().build().unwrap();
+            let data = client.get(format!(
+                "https://adventofcode.com/2021/day/{}/input",
+                self.get_num()
+            )).header("cookie", format!("session={}", cookie)).send().unwrap().text().unwrap();
+
+            std::fs::write(format!("input/day{}.in", self.get_num()), data).unwrap();
+        }
+    }
     fn read_input(&self) -> Result<Vec<Input>, <Input as FromStr>::Err> {
         parse_list(&format!("input/day{}.in", self.get_num()))
     }
     fn run_day(&self) -> (f64, f64) {
         println!("Day {}:", self.get_num());
+        self.check_input();
         let input2 = self.read_input().unwrap();
         let input1 = input2.clone();
         let b1 = Instant::now();

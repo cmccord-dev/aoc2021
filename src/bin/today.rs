@@ -5,7 +5,7 @@ use aoc2021::days::*;
 fn main() {
     match chrono::Local::now().day() {
         1 => day1::Day::new().run_day(),
-        // 2 => day2::Day::new().run_day(),
+        2 => day2::Day::new().run_day(),
         // 3 => day3::Day::new().run_day(),
         // 4 => day4::Day::new().run_day(),
         // 5 => day5::Day::new().run_day(),
