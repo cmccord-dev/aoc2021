@@ -1,15 +1,15 @@
-
-use chrono::Datelike;
 use aoc2021::days::*;
+use chrono::Datelike;
+use aoc2021::time;
 
 fn main() {
-    match chrono::Local::now().day() {
+    time!(match chrono::Local::now().day() {
         1 => day1::Day::new().run_day(),
         2 => day2::Day::new().run_day(),
         // 3 => day3::Day::new().run_day(),
-        // 4 => day4::Day::new().run_day(),
-        // 5 => day5::Day::new().run_day(),
-        // 6 => day6::Day::new().run_day(),
+        4 => day4::Day::new().run_day(),
+        5 => day5::Day::new().run_day(),
+        6 => day6::Day::new().run_day(),
         // 7 => day7::Day::new().run_day(),
         // 8 => day8::Day::new().run_day(),
         // 9 => day9::Day::new().run_day(),
@@ -30,5 +30,5 @@ fn main() {
         // 24 => day24::Day::new().run_day(),
         // 25 => day25::Day::new().run_day(),
         _ => day1::Day::new().run_day(),
-    };
+    });
 }
