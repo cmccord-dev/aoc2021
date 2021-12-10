@@ -3,7 +3,7 @@ use chrono::Datelike;
 use aoc2021::time;
 
 fn main() {
-    time!(match 9 {
+    time!(match 10 {
         1 => day1::Day::new().run_day(),
         2 => day2::Day::new().run_day(),
         3 => day3::Day::new().run_day(),
@@ -13,7 +13,7 @@ fn main() {
         7 => day7::Day::new().run_day(),
         8 => day8::Day::new().run_day(),
         9 => day9::Day::new().run_day(),
-        // 10 => day10::Day::new().run_day(),
+        10 => day10::Day::new().run_day(),
         // 11 => day11::Day::new().run_day(),
         // 12 => day12::Day::new().run_day(),
         // 13 => day13::Day::new().run_day(),
